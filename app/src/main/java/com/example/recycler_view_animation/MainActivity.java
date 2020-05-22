@@ -16,21 +16,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
-
     RecyclerView recyclerView;
     RecyclerViewAdapter recyclerViewAdapter;
-    FloatingActionButton add_button;
+
     ArrayList<String> arrayList = new ArrayList<>();
-
-    int i = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recyclerView);
-        add_button = findViewById(R.id.floatingActionButton);
+        FloatingActionButton add_button = findViewById(R.id.floatingActionButton);
 
         populateData();
         initAdapter();
@@ -41,13 +37,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 arrayList.add("New item");
                 recyclerViewAdapter.notifyItemInserted(arrayList.size() - 1);
-                recyclerView.scheduleLayoutAnimation();
             }
         });
     }
 
     private void populateData() {
-
         for (int i = 0; i <6;i++) {
             arrayList.add("Item " + i);
         }
@@ -63,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         final LayoutAnimationController controller =
                 AnimationUtils.loadLayoutAnimation(this, animationID);
         //to re run the application
-        // recyclerView.setLayoutAnimation(controller);
+         recyclerView.setLayoutAnimation(controller);
+//         recyclerView.getAdapter().notifyDataSetChanged();
+//         recyclerView.scheduleLayoutAnimation();
     }
 }

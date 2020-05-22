@@ -35,6 +35,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull ItemViewHolder myViewHolder, int position) {
         myViewHolder.tvItem.setText(itemList.get(position));
         Animation animation = AnimationUtils.loadAnimation(myViewHolder.itemView.getContext(), R.anim.item_animation_slide_from_right);
+//        Animation animation = AnimationUtils.loadAnimation(myViewHolder.itemView.getContext(), R.anim.item_animation_fall_down);
         myViewHolder.itemView.startAnimation(animation);
     }
 
